@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="AblyTester.StartPage"
+             xmlns:local="clr-namespace:AblyTester; assembly=AblyTester">
+
+    <ContentPage.BindingContext>
+        <local:StartViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,10,0,0" VerticalOptions="FillAndExpand">
+                    <Image Source="ably_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,10,16,10" Spacing="10">
+                <Label XAlign="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Xamarin Forms testing tool for ably-dotnet" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Button Margin="0,0,0,0" Text="Start" Command="{Binding StartCommand}" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" />
+                    <Button Margin="10,0,0,0" Text="Stop" Command="{Binding StopCommand}" BackgroundColor="Maroon" TextColor="White" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <Editor Margin="0,0,0,0" TextColor="Lime" BackgroundColor="Black" FontFamily="Droid Sans Mono, Menlo" Text="{Binding Output}" VerticalOptions="FillAndExpand" FontSize="12"  />
+                <Button Margin="0,0,0,0" Text="ably-dotnet on Github" Command="{Binding OpenWebCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
